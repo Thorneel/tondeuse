@@ -1,5 +1,7 @@
 package exercice.xebia.tondeuse.domaine;
 
+import java.util.LinkedList;
+
 public class Tondeuse {
 
 	final private TailleDePelouse tailleDePelouse;
@@ -7,12 +9,17 @@ public class Tondeuse {
 	private int longitude;
 	private int latitude;
 	private char orientation;
+	private String listeDesMouvements;
+	private int indexDuProchainMouvement;
 	
-	public Tondeuse(int longitude, int latitude, char direction, TailleDePelouse tailleDePelouse) {
+	public Tondeuse(int longitude, int latitude, char direction, TailleDePelouse tailleDePelouse, String listeDesMouvements) {
 		this.longitude = longitude;
 		this.latitude = latitude;
 		this.orientation = direction;
 		this.tailleDePelouse = tailleDePelouse;
+		this.listeDesMouvements = listeDesMouvements;
+		this.indexDuProchainMouvement = 0;
+		
 	}
 
 	public int getLongitude() {
@@ -94,6 +101,29 @@ public class Tondeuse {
 		default:
 			
 		}
+	}
+
+	public void executerMouvementSuivant() {
+
+		if (indexDuProchainMouvement < listeDesMouvements.length()) {
+			
+			switch (listeDesMouvements.charAt(indexDuProchainMouvement)) {
+			case 'A':
+				this.avancer();
+				break;
+			case 'D':
+				this.tournerVersLaDroite();
+				break;
+			case 'G':
+				this.tournerVersLaGauche();
+				break;
+			default:
+				
+			}
+			indexDuProchainMouvement++;
+			
+		}
+		
 	}
 
 }

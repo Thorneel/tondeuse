@@ -28,7 +28,7 @@ public class MouvementsDeLaTondeuseTest {
 	public void devraitAvancerLaTondeuse(int longitude, int latitude, char orientation, int longitude_attendue, int latitude_attendue) {
 		
 		TailleDePelouse tailleDePelouse = new TailleDePelouse(5, 5);
-		Tondeuse tondeuse = new Tondeuse(longitude, latitude, orientation, tailleDePelouse);
+		Tondeuse tondeuse = new Tondeuse(longitude, latitude, orientation, tailleDePelouse, "");
 		tondeuse.avancer();
 		assertEquals(longitude_attendue, tondeuse.getLongitude());
 		assertEquals(latitude_attendue, tondeuse.getLatitude());
@@ -45,7 +45,7 @@ public class MouvementsDeLaTondeuseTest {
 	public void devraitNePasAvancerLaTondeusePlusLoinQueLeBordDeLaPelouse(int longitude, int latitude, char orientation, int longitude_attendue, int latitude_attendue) {
 		
 		TailleDePelouse tailleDePelouse = new TailleDePelouse(6, 5);
-		Tondeuse tondeuse = new Tondeuse(longitude, latitude, orientation, tailleDePelouse);
+		Tondeuse tondeuse = new Tondeuse(longitude, latitude, orientation, tailleDePelouse, "");
 		tondeuse.avancer();
 		assertEquals(longitude_attendue, tondeuse.getLongitude());
 		assertEquals(latitude_attendue, tondeuse.getLatitude());
@@ -62,7 +62,7 @@ public class MouvementsDeLaTondeuseTest {
 	public void devraitTournerLaTondeuseVersLaDroite(int longitude, int latitude, char orientation, char orientation_attendue) {
 		
 		TailleDePelouse tailleDePelouse = new TailleDePelouse(6, 5);
-		Tondeuse tondeuse = new Tondeuse(longitude, latitude, orientation, tailleDePelouse);
+		Tondeuse tondeuse = new Tondeuse(longitude, latitude, orientation, tailleDePelouse, "");
 		tondeuse.tournerVersLaDroite();
 		assertEquals(orientation_attendue, tondeuse.getOrientation());
 		
@@ -78,7 +78,7 @@ public class MouvementsDeLaTondeuseTest {
 	public void devraitTournerLaTondeuseVersLaGauche(int longitude, int latitude, char orientation, char orientation_attendue) {
 		
 		TailleDePelouse tailleDePelouse = new TailleDePelouse(6, 5);
-		Tondeuse tondeuse = new Tondeuse(longitude, latitude, orientation, tailleDePelouse);
+		Tondeuse tondeuse = new Tondeuse(longitude, latitude, orientation, tailleDePelouse, "");
 		tondeuse.tournerVersLaGauche();
 		assertEquals(orientation_attendue, tondeuse.getOrientation());
 		
@@ -91,7 +91,7 @@ public class MouvementsDeLaTondeuseTest {
 	public void devraitDeplacerEtTournerLaTondeuse(int longitude, int latitude, char orientation, int longitude_attendue, int latitude_attendue, char orientation_attendue) {
 		
 		TailleDePelouse tailleDePelouse = new TailleDePelouse(6, 5);
-		Tondeuse tondeuse = new Tondeuse(longitude, latitude, orientation, tailleDePelouse);
+		Tondeuse tondeuse = new Tondeuse(longitude, latitude, orientation, tailleDePelouse, "");
 		tondeuse.avancer();
 		tondeuse.tournerVersLaDroite();
 		tondeuse.avancer();
@@ -99,26 +99,6 @@ public class MouvementsDeLaTondeuseTest {
 		assertEquals(longitude_attendue, tondeuse.getLongitude());
 		assertEquals(latitude_attendue, tondeuse.getLatitude());
 		assertEquals(orientation_attendue, tondeuse.getOrientation());
-		
-	}
-	
-	@Test
-	@Parameters({
-		"1, 2, N"
-	})
-	public void devraitDeplacerEtTournerLaTondeuseJusquARevenirASonPointDeDepart(int longitude, int latitude, char orientation) {
-		
-		TailleDePelouse tailleDePelouse = new TailleDePelouse(6, 5);
-		Tondeuse tondeuse = new Tondeuse(longitude, latitude, orientation, tailleDePelouse);
-		tondeuse.avancer();
-		tondeuse.tournerVersLaGauche();
-		tondeuse.avancer();
-		tondeuse.tournerVersLaGauche();
-		tondeuse.avancer();
-		tondeuse.tournerVersLaGauche();
-		tondeuse.avancer();
-		tondeuse.tournerVersLaGauche();
-		assertEquals(orientation, tondeuse.getOrientation());
 		
 	}
 

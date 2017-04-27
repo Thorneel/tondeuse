@@ -2,6 +2,7 @@ package exercice.xebia.tondeuse.domaine;
 
 import java.util.LinkedList;
 
+
 public class Pelouse {
 	
 	final private TailleDePelouse tailleDePelouse;
@@ -17,8 +18,8 @@ public class Pelouse {
 	}
 	
 	
-	public Tondeuse ajouterTondeuse(int longitude, int latitude, char direction) {
-		Tondeuse tondeuse = new Tondeuse(longitude, latitude, direction, this.tailleDePelouse);
+	public Tondeuse ajouterTondeuse(int longitude, int latitude, char direction, String listeDesMouvements) {
+		Tondeuse tondeuse = new Tondeuse(longitude, latitude, direction, this.tailleDePelouse, listeDesMouvements);
 		return tondeuse;
 	}
 

@@ -37,7 +37,7 @@ public class LireLesConditionsInitialesTest {
 	public void devraitCreerUneTondeuse(int longitude, int latitude, char orientation){
 		
 		TailleDePelouse tailleDePelouse = new TailleDePelouse(5, 5);
-		Tondeuse tondeuse = new Tondeuse(longitude, latitude, orientation, tailleDePelouse);
+		Tondeuse tondeuse = new Tondeuse(longitude, latitude, orientation, tailleDePelouse, "");
 		assertEquals(longitude, tondeuse.getLongitude());
 		assertEquals(latitude, tondeuse.getLatitude());
 		assertEquals(orientation, tondeuse.getOrientation());
@@ -49,7 +49,7 @@ public class LireLesConditionsInitialesTest {
 	public void devraitCreerUneTondeuseDansUnePelouseCarree(int longitude, int latitude, char orientation) {
 		
 		Pelouse pelouse = new Pelouse(5, 5);
-		pelouse.ajouterTondeuse(longitude, latitude, orientation);
+		pelouse.ajouterTondeuse(longitude, latitude, orientation, "");
 		
 	}
 
