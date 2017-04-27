@@ -15,7 +15,8 @@ public class Pelouse {
 	public TailleDePelouse getTailleDePelouse() {
 		return tailleDePelouse;
 	}
-
+	
+	
 	public Tondeuse ajouterTondeuse(int longitude, int latitude, char direction) {
 		Tondeuse tondeuse = new Tondeuse(longitude, latitude, direction, this.tailleDePelouse);
 		return tondeuse;

@@ -6,12 +6,12 @@ public class Tondeuse {
 	
 	private int longitude;
 	private int latitude;
-	private char direction;
+	private char orientation;
 	
 	public Tondeuse(int longitude, int latitude, char direction, TailleDePelouse tailleDePelouse) {
 		this.longitude = longitude;
 		this.latitude = latitude;
-		this.direction = direction;
+		this.orientation = direction;
 		this.tailleDePelouse = tailleDePelouse;
 	}
 
@@ -23,12 +23,14 @@ public class Tondeuse {
 		return latitude;
 	}
 
-	public char getDirection() {
-		return direction;
+	public char getOrientation() {
+		return orientation;
 	}
-
-	public void avancerTondeuse() {
-		switch (direction) {
+	
+	
+	public void avancer() {
+		
+		switch (orientation) {
 		case 'N':
 			if (latitude < tailleDePelouse.getTailleNordSudY()) { 
 				latitude++;
@@ -48,6 +50,46 @@ public class Tondeuse {
 			if (longitude > 0) {
 				longitude--;
 			}
+			break;
+		default:
+			
+		}
+	}
+
+	public void tournerVersLaDroite() {
+		
+		switch (orientation) {
+		case 'N':
+			orientation = 'E';
+			break;
+		case 'S':
+			orientation = 'W';
+			break;
+		case 'E':
+			orientation = 'S';
+			break;
+		case 'W':
+			orientation = 'N';
+			break;
+		default:
+			
+		}
+	}
+
+	public void tournerVersLaGauche() {
+		
+		switch (orientation) {
+		case 'N':
+			orientation = 'W';
+			break;
+		case 'S':
+			orientation = 'E';
+			break;
+		case 'E':
+			orientation = 'N';
+			break;
+		case 'W':
+			orientation = 'S';
 			break;
 		default:
 			

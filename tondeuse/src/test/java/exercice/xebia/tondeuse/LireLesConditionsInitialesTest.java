@@ -24,27 +24,33 @@ public class LireLesConditionsInitialesTest {
 	@Test
 	@Parameters({"5, 6"})
 	public void devraitCreerUnePelouseNonCarree(int tailleEstOuestX, int tailleNordSudY) {
+		
 		Pelouse pelouse = new Pelouse(tailleEstOuestX, tailleNordSudY);
 		TailleDePelouse tailleDePelouse = pelouse.getTailleDePelouse();
 		assertEquals(tailleEstOuestX, tailleDePelouse.getTailleEstOuestX());
 		assertEquals(tailleNordSudY, tailleDePelouse.getTailleNordSudY());
+		
 	}
 	
 	@Test
 	@Parameters({"1, 2, N"})
-	public void devraitCreerUneTondeuse(int longitude, int latitude, char direction){
+	public void devraitCreerUneTondeuse(int longitude, int latitude, char orientation){
+		
 		TailleDePelouse tailleDePelouse = new TailleDePelouse(5, 5);
-		Tondeuse tondeuse = new Tondeuse(longitude, latitude, direction, tailleDePelouse);
+		Tondeuse tondeuse = new Tondeuse(longitude, latitude, orientation, tailleDePelouse);
 		assertEquals(longitude, tondeuse.getLongitude());
 		assertEquals(latitude, tondeuse.getLatitude());
-		assertEquals(direction, tondeuse.getDirection());
+		assertEquals(orientation, tondeuse.getOrientation());
+		
 	}
 	
 	@Test
 	@Parameters({"1, 2, N"})
-	public void devraitCreerUneTondeuseDansUnePelouseCarree(int longitude, int latitude, char direction) {
+	public void devraitCreerUneTondeuseDansUnePelouseCarree(int longitude, int latitude, char orientation) {
+		
 		Pelouse pelouse = new Pelouse(5, 5);
-		pelouse.ajouterTondeuse(longitude, latitude, direction);
+		pelouse.ajouterTondeuse(longitude, latitude, orientation);
+		
 	}
 
 }
