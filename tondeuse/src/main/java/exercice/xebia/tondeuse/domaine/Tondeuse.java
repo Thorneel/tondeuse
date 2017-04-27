@@ -4,22 +4,23 @@ import java.util.LinkedList;
 
 public class Tondeuse {
 
-	final private TailleDePelouse tailleDePelouse;
-	
+	final private TailleDePelouse TailleDePelouse;
+
 	private int longitude;
 	private int latitude;
 	private char orientation;
-	private String listeDesMouvements;
-	private int indexDuProchainMouvement;
-	
-	public Tondeuse(int longitude, int latitude, char direction, TailleDePelouse tailleDePelouse, String listeDesMouvements) {
+	private String liste_des_mouvements;
+	private int index_du_prochain_mouvement;
+
+	public Tondeuse(int longitude, int latitude, char direction, TailleDePelouse TailleDePelouse,
+			String liste_des_mouvements) {
 		this.longitude = longitude;
 		this.latitude = latitude;
 		this.orientation = direction;
-		this.tailleDePelouse = tailleDePelouse;
-		this.listeDesMouvements = listeDesMouvements;
-		this.indexDuProchainMouvement = 0;
-		
+		this.TailleDePelouse = TailleDePelouse;
+		this.liste_des_mouvements = liste_des_mouvements;
+		this.index_du_prochain_mouvement = 0;
+
 	}
 
 	public int getLongitude() {
@@ -33,13 +34,12 @@ public class Tondeuse {
 	public char getOrientation() {
 		return orientation;
 	}
-	
-	
+
 	public void avancer() {
-		
+
 		switch (orientation) {
 		case 'N':
-			if (latitude < tailleDePelouse.getTailleNordSudY()) { 
+			if (latitude < TailleDePelouse.gettaille_nord_sud_y()) {
 				latitude++;
 			}
 			break;
@@ -49,7 +49,7 @@ public class Tondeuse {
 			}
 			break;
 		case 'E':
-			if (longitude < tailleDePelouse.getTailleEstOuestX()) { 
+			if (longitude < TailleDePelouse.gettaille_est_ouest_x()) {
 				longitude++;
 			}
 			break;
@@ -59,12 +59,12 @@ public class Tondeuse {
 			}
 			break;
 		default:
-			
+
 		}
 	}
 
 	public void tournerVersLaDroite() {
-		
+
 		switch (orientation) {
 		case 'N':
 			orientation = 'E';
@@ -79,12 +79,12 @@ public class Tondeuse {
 			orientation = 'N';
 			break;
 		default:
-			
+
 		}
 	}
 
 	public void tournerVersLaGauche() {
-		
+
 		switch (orientation) {
 		case 'N':
 			orientation = 'W';
@@ -99,15 +99,15 @@ public class Tondeuse {
 			orientation = 'S';
 			break;
 		default:
-			
+
 		}
 	}
 
 	public void executerMouvementSuivant() {
 
-		if (indexDuProchainMouvement < listeDesMouvements.length()) {
-			
-			switch (listeDesMouvements.charAt(indexDuProchainMouvement)) {
+		if (index_du_prochain_mouvement < liste_des_mouvements.length()) {
+
+			switch (liste_des_mouvements.charAt(index_du_prochain_mouvement)) {
 			case 'A':
 				this.avancer();
 				break;
@@ -118,12 +118,12 @@ public class Tondeuse {
 				this.tournerVersLaGauche();
 				break;
 			default:
-				
+
 			}
-			indexDuProchainMouvement++;
-			
+			index_du_prochain_mouvement++;
+
 		}
-		
+
 	}
 
 }
