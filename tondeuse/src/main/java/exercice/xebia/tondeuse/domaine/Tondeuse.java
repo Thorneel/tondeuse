@@ -34,6 +34,15 @@ public class Tondeuse {
 	public char getOrientation() {
 		return orientation;
 	}
+	
+	
+	@Override
+	public String toString() {
+		return "Tondeuse [TailleDePelouse=" + TailleDePelouse + ", longitude=" + longitude + ", latitude=" + latitude
+				+ ", orientation=" + orientation + ", liste_des_mouvements=" + liste_des_mouvements
+				+ ", index_du_prochain_mouvement=" + index_du_prochain_mouvement + "]";
+	}
+	
 
 	public void avancer() {
 
