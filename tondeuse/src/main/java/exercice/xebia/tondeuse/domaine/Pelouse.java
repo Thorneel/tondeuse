@@ -3,25 +3,22 @@ package exercice.xebia.tondeuse.domaine;
 import java.util.LinkedList;
 
 public class Pelouse {
-	private int tailleEstOuest;
-	private int tailleNordSud;
+	
+	final private TailleDePelouse tailleDePelouse;
+	
 	private LinkedList<Tondeuse> tableauDesTondeusesSurCettePelouse = new  LinkedList<Tondeuse>();
 
-	public Pelouse(int tailleEstOuest, int tailleNordSud) {
-		this.tailleEstOuest = tailleEstOuest;
-		this.tailleNordSud = tailleNordSud;
+	public Pelouse(int tailleEstOuestX, int tailleNordSudY) {
+		this.tailleDePelouse = new TailleDePelouse(tailleEstOuestX, tailleNordSudY);
 	}
 
-	public int getTailleEstOuest() {
-		return tailleEstOuest;
+	public TailleDePelouse getTailleDePelouse() {
+		return tailleDePelouse;
 	}
 
-	public int getTailleNordSud() {
-		return tailleNordSud;
-	}
-
-	public void ajouterTondeuse(int longitude, int latitude, char direction) {
-		Tondeuse tondeuse = new Tondeuse(longitude, latitude, direction);
+	public Tondeuse ajouterTondeuse(int longitude, int latitude, char direction) {
+		Tondeuse tondeuse = new Tondeuse(longitude, latitude, direction, this.tailleDePelouse);
+		return tondeuse;
 	}
 
 }

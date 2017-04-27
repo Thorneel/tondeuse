@@ -2,14 +2,17 @@ package exercice.xebia.tondeuse.domaine;
 
 public class Tondeuse {
 
+	final private TailleDePelouse tailleDePelouse;
+	
 	private int longitude;
 	private int latitude;
 	private char direction;
 	
-	public Tondeuse(int longitude, int latitude, char direction) {
+	public Tondeuse(int longitude, int latitude, char direction, TailleDePelouse tailleDePelouse) {
 		this.longitude = longitude;
 		this.latitude = latitude;
 		this.direction = direction;
+		this.tailleDePelouse = tailleDePelouse;
 	}
 
 	public int getLongitude() {
@@ -27,16 +30,24 @@ public class Tondeuse {
 	public void avancerTondeuse() {
 		switch (direction) {
 		case 'N':
-			latitude++;
+			if (latitude < tailleDePelouse.getTailleNordSudY()) { 
+				latitude++;
+			}
 			break;
 		case 'S':
-			latitude--;
+			if (latitude > 0) {
+				latitude--;
+			}
 			break;
 		case 'E':
-			longitude++;
+			if (longitude < tailleDePelouse.getTailleEstOuestX()) { 
+				longitude++;
+			}
 			break;
 		case 'W':
-			longitude--;
+			if (longitude > 0) {
+				longitude--;
+			}
 			break;
 		default:
 			

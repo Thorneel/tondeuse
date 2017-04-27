@@ -10,6 +10,7 @@ import junitparams.Parameters;
 import org.junit.runner.RunWith;
 
 import exercice.xebia.tondeuse.domaine.Pelouse;
+import exercice.xebia.tondeuse.domaine.TailleDePelouse;
 import exercice.xebia.tondeuse.domaine.Tondeuse;
 
 @RunWith(JUnitParamsRunner.class)
@@ -22,16 +23,18 @@ public class LireLesConditionsInitialesTest {
 
 	@Test
 	@Parameters({"5, 6"})
-	public void devraitCreerUnePelouseNonCarree(int tailleEstOuest, int tailleNordSud) {
-		Pelouse pelouse = new Pelouse(tailleEstOuest, tailleNordSud);
-		assertEquals(tailleEstOuest, pelouse.getTailleEstOuest());
-		assertEquals(tailleNordSud, pelouse.getTailleNordSud());
+	public void devraitCreerUnePelouseNonCarree(int tailleEstOuestX, int tailleNordSudY) {
+		Pelouse pelouse = new Pelouse(tailleEstOuestX, tailleNordSudY);
+		TailleDePelouse tailleDePelouse = pelouse.getTailleDePelouse();
+		assertEquals(tailleEstOuestX, tailleDePelouse.getTailleEstOuestX());
+		assertEquals(tailleNordSudY, tailleDePelouse.getTailleNordSudY());
 	}
 	
 	@Test
 	@Parameters({"1, 2, N"})
 	public void devraitCreerUneTondeuse(int longitude, int latitude, char direction){
-		Tondeuse tondeuse = new Tondeuse(longitude, latitude, direction);
+		TailleDePelouse tailleDePelouse = new TailleDePelouse(5, 5);
+		Tondeuse tondeuse = new Tondeuse(longitude, latitude, direction, tailleDePelouse);
 		assertEquals(longitude, tondeuse.getLongitude());
 		assertEquals(latitude, tondeuse.getLatitude());
 		assertEquals(direction, tondeuse.getDirection());
