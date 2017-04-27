@@ -12,4 +12,16 @@ public class Tondeuse {
 		this.direction = direction;
 	}
 
+	public int getLongitude() {
+		return longitude;
+	}
+
+	public int getLatitude() {
+		return latitude;
+	}
+
+	public char getDirection() {
+		return direction;
+	}
+
 }
