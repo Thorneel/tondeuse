@@ -24,4 +24,23 @@ public class Tondeuse {
 		return direction;
 	}
 
+	public void avancerTondeuse() {
+		switch (direction) {
+		case 'N':
+			latitude++;
+			break;
+		case 'S':
+			latitude--;
+			break;
+		case 'E':
+			longitude++;
+			break;
+		case 'W':
+			longitude--;
+			break;
+		default:
+			
+		}
+	}
+
 }
