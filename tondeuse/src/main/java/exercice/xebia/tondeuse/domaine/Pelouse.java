@@ -2,7 +2,7 @@ package exercice.xebia.tondeuse.domaine;
 
 import java.util.ArrayList;
 
-import exercice.xebia.tondeuse.ValeursDesCaracteresDeCommande;
+import exercice.xebia.tondeuse.valeurs.ValeursDesCaracteresDeCommande;
 
 public class Pelouse {
 

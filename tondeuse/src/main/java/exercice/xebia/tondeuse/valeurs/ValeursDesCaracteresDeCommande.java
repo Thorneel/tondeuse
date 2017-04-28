@@ -1,4 +1,4 @@
-package exercice.xebia.tondeuse;
+package exercice.xebia.tondeuse.valeurs;
 
 public abstract class ValeursDesCaracteresDeCommande {
 	public static final String[] STRING_DE_REFERENCE_POUR_RETOURNER_UN_TABLEAU_DE_STRING_PLUTOT_QU_UN_TABLEAU_D_OBJECT = {};

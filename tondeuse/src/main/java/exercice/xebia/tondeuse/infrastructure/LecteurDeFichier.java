@@ -3,8 +3,8 @@ package exercice.xebia.tondeuse.infrastructure;
 import java.io.BufferedReader;
 import java.util.ArrayList;
 
-import exercice.xebia.tondeuse.ValeursDesCaracteresDeCommande;
 import exercice.xebia.tondeuse.domaine.Pelouse;
+import exercice.xebia.tondeuse.valeurs.ValeursDesCaracteresDeCommande;
 
 import java.io.FileReader;
 import java.io.IOException;

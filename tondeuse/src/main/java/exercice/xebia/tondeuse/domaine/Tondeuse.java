@@ -1,6 +1,6 @@
 package exercice.xebia.tondeuse.domaine;
 
-import exercice.xebia.tondeuse.ValeursDesCaracteresDeCommande;
+import exercice.xebia.tondeuse.valeurs.ValeursDesCaracteresDeCommande;
 
 public class Tondeuse {
 

@@ -32,9 +32,6 @@ public class AffichageDeResultatsTest {
 		
 		AfficheurDeResultats afficheur_de_resultats = new AfficheurDeResultats(tableau_de_resultats);
 		
-		//System.out.println(tableau_de_resultats[0]);
-		//System.out.println(tableau_de_resultats[1]);
-		
 		afficheur_de_resultats.afficherLesResultats();
 		
 		String string_de_resultats = new String();
