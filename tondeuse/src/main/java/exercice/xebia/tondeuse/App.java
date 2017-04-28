@@ -1,5 +1,10 @@
 package exercice.xebia.tondeuse;
 
+import java.io.File;
+import java.io.IOException;
+
+import exercice.xebia.tondeuse.infrastructure.LecteurDeFichier;
+
 /**
  * Hello world!
  *
@@ -7,9 +12,11 @@ package exercice.xebia.tondeuse;
 public class App 
 {
 	
-    public static void main( String[] args )
+    public static void main( String[] args ) throws IOException
     {
-        System.out.println( "Hello World!" );
+    	File fichier_de_commande = new File("fichiersDeCommande/fichier_de_commande.txt");
+        System.out.println(fichier_de_commande.getAbsolutePath());
+    	LecteurDeFichier lecteurDeFichier = new LecteurDeFichier(fichier_de_commande.getAbsolutePath());
     }
 
     // TODO enlever cette méthode qui était là seulement que ça fonctionne

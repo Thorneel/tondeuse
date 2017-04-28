@@ -2,7 +2,6 @@ package exercice.xebia.tondeuse;
 
 import static org.junit.Assert.*;
 
-import org.junit.BeforeClass;
 import org.junit.Test;
 import junitparams.JUnitParamsRunner;
 import junitparams.Parameters;
@@ -14,12 +13,7 @@ import exercice.xebia.tondeuse.domaine.TailleDePelouse;
 import exercice.xebia.tondeuse.domaine.Tondeuse;
 
 @RunWith(JUnitParamsRunner.class)
-public class LireLesConditionsInitialesTest {
-
-	@BeforeClass
-	public static void setUpBeforeClass() throws Exception {
-		
-	}
+public class FournirLesConditionsInitialesALaPelouseEtAuxTondeusesTest {
 
 	@Test
 	@Parameters({"5, 6"})

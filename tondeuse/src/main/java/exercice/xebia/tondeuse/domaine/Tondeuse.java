@@ -1,6 +1,6 @@
 package exercice.xebia.tondeuse.domaine;
 
-import java.util.LinkedList;
+import exercice.xebia.tondeuse.ValeursDesCaracteresDeCommande;
 
 public class Tondeuse {
 
@@ -47,22 +47,22 @@ public class Tondeuse {
 	public void avancer() {
 
 		switch (orientation) {
-		case 'N':
+		case ValeursDesCaracteresDeCommande.NORD:
 			if (latitude < TailleDePelouse.gettaille_nord_sud_y()) {
 				latitude++;
 			}
 			break;
-		case 'S':
+		case ValeursDesCaracteresDeCommande.SUD:
 			if (latitude > 0) {
 				latitude--;
 			}
 			break;
-		case 'E':
+		case ValeursDesCaracteresDeCommande.EST:
 			if (longitude < TailleDePelouse.gettaille_est_ouest_x()) {
 				longitude++;
 			}
 			break;
-		case 'W':
+		case ValeursDesCaracteresDeCommande.OUEST:
 			if (longitude > 0) {
 				longitude--;
 			}
@@ -75,17 +75,17 @@ public class Tondeuse {
 	public void tournerVersLaDroite() {
 
 		switch (orientation) {
-		case 'N':
-			orientation = 'E';
+		case ValeursDesCaracteresDeCommande.NORD:
+			orientation = ValeursDesCaracteresDeCommande.EST;
 			break;
-		case 'S':
-			orientation = 'W';
+		case ValeursDesCaracteresDeCommande.SUD:
+			orientation = ValeursDesCaracteresDeCommande.OUEST;
 			break;
-		case 'E':
-			orientation = 'S';
+		case ValeursDesCaracteresDeCommande.EST:
+			orientation = ValeursDesCaracteresDeCommande.SUD;
 			break;
-		case 'W':
-			orientation = 'N';
+		case ValeursDesCaracteresDeCommande.OUEST:
+			orientation = ValeursDesCaracteresDeCommande.NORD;
 			break;
 		default:
 
@@ -95,17 +95,17 @@ public class Tondeuse {
 	public void tournerVersLaGauche() {
 
 		switch (orientation) {
-		case 'N':
-			orientation = 'W';
+		case ValeursDesCaracteresDeCommande.NORD:
+			orientation = ValeursDesCaracteresDeCommande.OUEST;
 			break;
-		case 'S':
-			orientation = 'E';
+		case ValeursDesCaracteresDeCommande.SUD:
+			orientation = ValeursDesCaracteresDeCommande.EST;
 			break;
-		case 'E':
-			orientation = 'N';
+		case ValeursDesCaracteresDeCommande.EST:
+			orientation = ValeursDesCaracteresDeCommande.NORD;
 			break;
-		case 'W':
-			orientation = 'S';
+		case ValeursDesCaracteresDeCommande.OUEST:
+			orientation = ValeursDesCaracteresDeCommande.SUD;
 			break;
 		default:
 
@@ -117,13 +117,13 @@ public class Tondeuse {
 		if (index_du_prochain_mouvement < liste_des_mouvements.length()) {
 
 			switch (liste_des_mouvements.charAt(index_du_prochain_mouvement)) {
-			case 'A':
+			case ValeursDesCaracteresDeCommande.AVANT:
 				this.avancer();
 				break;
-			case 'D':
+			case ValeursDesCaracteresDeCommande.DROITE:
 				this.tournerVersLaDroite();
 				break;
-			case 'G':
+			case ValeursDesCaracteresDeCommande.GAUCHE:
 				this.tournerVersLaGauche();
 				break;
 			default:

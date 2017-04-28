@@ -4,7 +4,6 @@ import static org.junit.Assert.assertEquals;
 
 import java.util.ArrayList;
 
-import org.junit.BeforeClass;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
@@ -14,19 +13,8 @@ import exercice.xebia.tondeuse.domaine.Tondeuse;
 import junitparams.JUnitParamsRunner;
 import junitparams.Parameters;
 
-import junitparams.FileParameters;
-import junitparams.converters.Param;
-import junitparams.custom.combined.CombinedParameters;
-import junitparams.mappers.CsvWithHeaderMapper;
-import junitparams.naming.TestCaseName;
-import static junitparams.JUnitParamsRunner.*;
-
 @RunWith(JUnitParamsRunner.class)
 public class MouvementDesTondeusesSurLaPelouseTest {
-
-	@BeforeClass
-	public static void setUpBeforeClass() throws Exception {
-	}
 
 	@Test
 	@Parameters({ "1, 2, N, GAGAGAGAA, 1, 3, N" })

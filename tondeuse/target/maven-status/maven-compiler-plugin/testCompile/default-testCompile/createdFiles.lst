@@ -1,5 +1,6 @@
 exercice\xebia\tondeuse\MouvementsDeLaTondeuseTest.class
-exercice\xebia\tondeuse\LireLesConditionsInitialesTest.class
 exercice\xebia\tondeuse\MouvementDesTondeusesSurLaPelouseTest.class
 exercice\xebia\tondeuse\AllTests.class
+exercice\xebia\tondeuse\FournirLesConditionsInitialesALaPelouseEtAuxTondeusesTest.class
 exercice\xebia\tondeuse\AppTest.class
+exercice\xebia\tondeuse\LectureDuFichierDeCommandesTest.class
