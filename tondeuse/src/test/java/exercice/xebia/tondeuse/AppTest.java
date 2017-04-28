@@ -5,30 +5,37 @@ package exercice.xebia.tondeuse;
 
 import static org.junit.Assert.*;
 
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.io.PrintStream;
+
+import org.junit.AfterClass;
+import org.junit.BeforeClass;
 import org.junit.Test;
 import junitparams.JUnitParamsRunner;
-import junitparams.Parameters;
-
 import org.junit.runner.RunWith;
 
 @RunWith(JUnitParamsRunner.class)
 public class AppTest {
 
-	
-	/*@Test
-	public void testMain() {
-		//fail("Not yet implemented");
-	}*/
-	
-	// TODO remplacer ce test de test pour tester les tests par un vrai test
-	/**
-	 * Test method for {@link exercice.xebia.tondeuse.App#addOne(int)}.
-	 */
-	@Test
-	@Parameters({"-1", "0", "1", "2"})
-	public void shouldAddOneToTheParameter(int i) {
-		App app = new App();
-		assertEquals(i+1, app.addOne(i));
+    private final static PrintStream sortie_par_defaut_vers_la_console = System.out;
+    private final static ByteArrayOutputStream output = new ByteArrayOutputStream();
+
+	@BeforeClass
+	public static void setUpBeforeClass() throws Exception {
+        System.setOut(new PrintStream(output, true, "UTF-8"));
 	}
+
+	@Test
+	public void testDeLaBoucleMainAvecLeFichierDExemple() throws IOException {
+		App.main(null);
+		String string_de_resultats = "1 3 N" + System.lineSeparator() + "5 1 E" + System.lineSeparator();
+		assertEquals(string_de_resultats, output.toString());
+	}
+	
+	@AfterClass
+    public static void tearDownAfterClass() {
+        System.setOut(sortie_par_defaut_vers_la_console);
+    }
 
 }

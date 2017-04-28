@@ -58,8 +58,6 @@ public class Pelouse {
 			orientation = tondeuse_dont_il_faut_la_position.getOrientation();
 
 			position = longitude + " " + latitude + " " + orientation;
-			System.out.println(position);
-			
 			tableau_position_des_tondeuses.add(position);
 
 		}
