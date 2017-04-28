@@ -4,7 +4,7 @@ import exercice.xebia.tondeuse.ValeursDesCaracteresDeCommande;
 
 public class Tondeuse {
 
-	final private TailleDePelouse TailleDePelouse;
+	final private TailleDePelouse taille_de_pelouse;
 
 	private int longitude;
 	private int latitude;
@@ -17,7 +17,7 @@ public class Tondeuse {
 		this.longitude = longitude;
 		this.latitude = latitude;
 		this.orientation = direction;
-		this.TailleDePelouse = TailleDePelouse;
+		this.taille_de_pelouse = TailleDePelouse;
 		this.liste_des_mouvements = liste_des_mouvements;
 		this.index_du_prochain_mouvement = 0;
 
@@ -38,7 +38,7 @@ public class Tondeuse {
 	
 	@Override
 	public String toString() {
-		return "Tondeuse [TailleDePelouse=" + TailleDePelouse + ", longitude=" + longitude + ", latitude=" + latitude
+		return "Tondeuse [taille_de_pelouse=" + taille_de_pelouse + ", longitude=" + longitude + ", latitude=" + latitude
 				+ ", orientation=" + orientation + ", liste_des_mouvements=" + liste_des_mouvements
 				+ ", index_du_prochain_mouvement=" + index_du_prochain_mouvement + "]";
 	}
@@ -48,7 +48,7 @@ public class Tondeuse {
 
 		switch (orientation) {
 		case ValeursDesCaracteresDeCommande.NORD:
-			if (latitude < TailleDePelouse.gettaille_nord_sud_y()) {
+			if (latitude < taille_de_pelouse.getTailleNordSudY()) {
 				latitude++;
 			}
 			break;
@@ -58,7 +58,7 @@ public class Tondeuse {
 			}
 			break;
 		case ValeursDesCaracteresDeCommande.EST:
-			if (longitude < TailleDePelouse.gettaille_est_ouest_x()) {
+			if (longitude < taille_de_pelouse.getTailleEstOuestX()) {
 				longitude++;
 			}
 			break;

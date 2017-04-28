@@ -20,9 +20,9 @@ public class FournirLesConditionsInitialesALaPelouseEtAuxTondeusesTest {
 	public void devraitCreerUnePelouseNonCarree(int taille_est_ouest_x, int taille_nord_sud_y) {
 		
 		Pelouse pelouse = new Pelouse(taille_est_ouest_x, taille_nord_sud_y);
-		TailleDePelouse TailleDePelouse = pelouse.gettaille_de_pelouse();
-		assertEquals(taille_est_ouest_x, TailleDePelouse.gettaille_est_ouest_x());
-		assertEquals(taille_nord_sud_y, TailleDePelouse.gettaille_nord_sud_y());
+		TailleDePelouse TailleDePelouse = pelouse.getTailleDePelouse();
+		assertEquals(taille_est_ouest_x, TailleDePelouse.getTailleEstOuestX());
+		assertEquals(taille_nord_sud_y, TailleDePelouse.getTailleNordSudY());
 		
 	}
 	

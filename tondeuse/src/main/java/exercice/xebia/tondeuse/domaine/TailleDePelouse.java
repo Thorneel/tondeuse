@@ -10,11 +10,11 @@ public class TailleDePelouse {
 		this.taille_nord_sud_y = taille_nord_sud_y;
 	}
 
-	public int gettaille_est_ouest_x() {
+	public int getTailleEstOuestX() {
 		return taille_est_ouest_x;
 	}
 
-	public int gettaille_nord_sud_y() {
+	public int getTailleNordSudY() {
 		return taille_nord_sud_y;
 	}
 
