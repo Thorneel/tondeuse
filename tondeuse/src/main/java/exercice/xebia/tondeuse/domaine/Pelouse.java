@@ -2,6 +2,8 @@ package exercice.xebia.tondeuse.domaine;
 
 import java.util.ArrayList;
 
+import exercice.xebia.tondeuse.ValeursDesCaracteresDeCommande;
+
 public class Pelouse {
 
 	final private TailleDePelouse taille_de_pelouse;
@@ -71,9 +73,9 @@ public class Pelouse {
 			tableau_position_des_tondeuses.add(position);
 
 		}
-
-		String[] string_de_reference_pour_retourner_un_tableau_de_string_plutot_qu_un_tableau_d_objet = {};
-		return tableau_position_des_tondeuses.toArray(string_de_reference_pour_retourner_un_tableau_de_string_plutot_qu_un_tableau_d_objet);
+		
+		return tableau_position_des_tondeuses.toArray(
+				ValeursDesCaracteresDeCommande.STRING_DE_REFERENCE_POUR_RETOURNER_UN_TABLEAU_DE_STRING_PLUTOT_QU_UN_TABLEAU_D_OBJECT);
 	}
 
 }

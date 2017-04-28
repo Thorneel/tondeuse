@@ -43,7 +43,7 @@ public class LectureDuFichierDeCommandesTest {
 
 	@Test
 	@Parameters({ "5 5, 1 2 N, GAGAGAGAA, 3 3 E, AADAADADDA" })
-	public void DevraitCreerPelouseEtTondeusesDApresLeContenuDuFichierDeCommandes(
+	public void DevraitRecevoirDansLeLecteurDeFichierLeContenuDuFichier(
 			String[] tableau_de_contenu_du_fichier_d_entree) throws IOException {
 
 		String chemin_absolu = remplirFichierTemporaire(tableau_de_contenu_du_fichier_d_entree);
@@ -52,7 +52,7 @@ public class LectureDuFichierDeCommandesTest {
 		assertArrayEquals(tableau_de_contenu_du_fichier_d_entree, lecteur_de_fichier.getTableauDesLignesDuFichier());
 	}
 
-	public Object parametresDeFichierDEntreeEtResultatsAttendus() {
+	public Object parametresDeFichierDEntreeEtResultatsAttendusPourLireLeFichierCreerPelouseEtTondeusesEtEffectuerLesDeplacements() {
 
 		String[] tableau_de_contenu_du_fichier_d_entree = { "5 5", "1 2 N", "GAGAGAGAA", "3 3 E", "AADAADADDA" };
 		int taille_est_ouest_x_attendue = 5;
@@ -64,7 +64,7 @@ public class LectureDuFichierDeCommandesTest {
 	}
 
 	@Test
-	@Parameters(method = "parametresDeFichierDEntreeEtResultatsAttendus")
+	@Parameters(method = "parametresDeFichierDEntreeEtResultatsAttendusPourLireLeFichierCreerPelouseEtTondeusesEtEffectuerLesDeplacements")
 	public void devraitLireLeFichierCreerPelouseEtTondeusesEtEffectuerLesDeplacements(
 			String[] tableau_de_contenu_du_fichier_d_entree, int taille_est_ouest_x_attendue,
 			int taille_nord_sud_y_attendue, String[] tableau_positions_des_tondeuses_attendues) throws IOException {
@@ -76,10 +76,11 @@ public class LectureDuFichierDeCommandesTest {
 		TailleDePelouse tailleDePelouse = pelouse.getTailleDePelouse();
 		assertEquals(taille_est_ouest_x_attendue, tailleDePelouse.getTailleEstOuestX());
 		assertEquals(taille_nord_sud_y_attendue, tailleDePelouse.getTailleNordSudY());
-		
-		String[] tableau_positions_des_tondeuses = pelouse.getTableauPositionsDesTondeuses();
-		//assertArrayEquals(tableau_positions_des_tondeuses_attendues, tableau_positions_des_tondeuses);
-		// TODO faire executer les mouvements de la pelouse
+
+		lecteur_de_fichier.effectuerTousLesMouvementsDesTondeusesDeLaPelouse();
+
+		String[] tableau_positions_des_tondeuses = lecteur_de_fichier.getTableauPositionsDesTondeusesDeLaPelouse();
+		assertArrayEquals(tableau_positions_des_tondeuses_attendues, tableau_positions_des_tondeuses);
 	}
 
 }
