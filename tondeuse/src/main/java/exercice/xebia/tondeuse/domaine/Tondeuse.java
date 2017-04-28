@@ -10,8 +10,6 @@ public class Tondeuse {
 	private int latitude;
 	private char orientation;
 	private String liste_des_mouvements;
-	private int index_du_prochain_mouvement;
-
 	public Tondeuse(int longitude, int latitude, char direction, TailleDePelouse TailleDePelouse,
 			String liste_des_mouvements) {
 		this.longitude = longitude;
@@ -19,7 +17,6 @@ public class Tondeuse {
 		this.orientation = direction;
 		this.taille_de_pelouse = TailleDePelouse;
 		this.liste_des_mouvements = liste_des_mouvements;
-		this.index_du_prochain_mouvement = 0;
 
 	}
 
@@ -40,7 +37,7 @@ public class Tondeuse {
 	public String toString() {
 		return "Tondeuse [taille_de_pelouse=" + taille_de_pelouse + ", longitude=" + longitude + ", latitude=" + latitude
 				+ ", orientation=" + orientation + ", liste_des_mouvements=" + liste_des_mouvements
-				+ ", index_du_prochain_mouvement=" + index_du_prochain_mouvement + "]";
+				+ "]";
 	}
 	
 
@@ -113,10 +110,8 @@ public class Tondeuse {
 	}
 
 	public void executerMouvementSuivant() {
-
-		if (index_du_prochain_mouvement < liste_des_mouvements.length()) {
-
-			switch (liste_des_mouvements.charAt(index_du_prochain_mouvement)) {
+		if (!liste_des_mouvements.isEmpty()) {
+			switch (liste_des_mouvements.charAt(0)) {
 			case ValeursDesCaracteresDeCommande.AVANT:
 				this.avancer();
 				break;
@@ -129,10 +124,8 @@ public class Tondeuse {
 			default:
 
 			}
-			index_du_prochain_mouvement++;
-
+			liste_des_mouvements = liste_des_mouvements.substring(1);
 		}
-
 	}
 
 }

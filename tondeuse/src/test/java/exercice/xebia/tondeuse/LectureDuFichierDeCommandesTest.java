@@ -14,6 +14,7 @@ import org.junit.runner.RunWith;
 
 import exercice.xebia.tondeuse.domaine.Pelouse;
 import exercice.xebia.tondeuse.domaine.TailleDePelouse;
+import exercice.xebia.tondeuse.infrastructure.AfficheurDeResultats;
 import exercice.xebia.tondeuse.infrastructure.LecteurDeFichier;
 import junitparams.JUnitParamsRunner;
 import junitparams.Parameters;
@@ -26,13 +27,16 @@ public class LectureDuFichierDeCommandesTest {
 
 	private String remplirFichierTemporaire(String[] tableau_de_contenu_du_fichier_d_entree) throws IOException {
 
-		String contenu_du_fichier_d_entree = "";
-		for (int i = 0; i < tableau_de_contenu_du_fichier_d_entree.length; i++) {
-			contenu_du_fichier_d_entree += tableau_de_contenu_du_fichier_d_entree[i];
-			if (i < tableau_de_contenu_du_fichier_d_entree.length - 1) {
+		String contenu_du_fichier_d_entree = new String();
+		int nombre_de_lignes_restantes_apres_celle_la = tableau_de_contenu_du_fichier_d_entree.length;
+		for (String ligne_suivante_du_fichier_d_entree: tableau_de_contenu_du_fichier_d_entree) {
+			nombre_de_lignes_restantes_apres_celle_la--;
+			contenu_du_fichier_d_entree += ligne_suivante_du_fichier_d_entree;
+			if (nombre_de_lignes_restantes_apres_celle_la > 0) {
 				contenu_du_fichier_d_entree += System.lineSeparator();
 			}
 		}
+		
 		final File fichier_de_commandes_temporaire = tempFolder.newFile("fichier_de_commandes.txt");
 		BufferedWriter buffered_writer = new BufferedWriter(new FileWriter(fichier_de_commandes_temporaire));
 		buffered_writer.write(contenu_du_fichier_d_entree);

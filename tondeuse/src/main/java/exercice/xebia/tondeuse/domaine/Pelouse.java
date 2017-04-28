@@ -31,14 +31,9 @@ public class Pelouse {
 	}
 
 	public void executerMouvementSuivantPourChaqueTondeuse() {
-		Tondeuse tondeuse_a_avancer;
-		for (int i = 0; i < liste_des_tondeuses_sur_cette_pelouse.size(); i++) {
-
-			tondeuse_a_avancer = liste_des_tondeuses_sur_cette_pelouse.get(i);
+		for (Tondeuse tondeuse_a_avancer : liste_des_tondeuses_sur_cette_pelouse) {
 			tondeuse_a_avancer.executerMouvementSuivant();
-
 			nombre_de_mouvements_restants--;
-
 		}
 	}
 
@@ -50,18 +45,13 @@ public class Pelouse {
 	}
 
 	public String[] getTableauPositionsDesTondeuses() {
-		// TODO Auto-generated method stub
 		ArrayList<String> tableau_position_des_tondeuses = new ArrayList<String>();
-
-		Tondeuse tondeuse_dont_il_faut_la_position;
 		String position;
 		int longitude;
 		int latitude;
 		char orientation;
-		System.out.println("getTableauPositionsDesTondeuses en cours d'execution");
-		for (int i = 0; i < liste_des_tondeuses_sur_cette_pelouse.size(); i++) {
-
-			tondeuse_dont_il_faut_la_position = liste_des_tondeuses_sur_cette_pelouse.get(i);
+		
+		for (Tondeuse tondeuse_dont_il_faut_la_position: liste_des_tondeuses_sur_cette_pelouse) {
 			
 			longitude = tondeuse_dont_il_faut_la_position.getLongitude();
 			latitude = tondeuse_dont_il_faut_la_position.getLatitude();
